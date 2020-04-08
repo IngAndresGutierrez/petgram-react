@@ -1,6 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+import ApolloClient from "apollo-boost";
+import { ApolloProvider } from "react-apollo";
+
+const client = new ApolloClient({
+  uri: "https://petgram-apis.now.sh/graphql",
+});
+
 import { App } from "./App";
 
-ReactDOM.render(<App />, document.getElementById("app"));
+ReactDOM.render(
+  <ApolloProvider client={client}>
+    <App />
+  </ApolloProvider>,
+  document.getElementById("app")
+);

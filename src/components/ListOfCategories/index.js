@@ -1,20 +1,29 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { Category } from "../Category";
 
+import { Category } from "../Category";
 import { List, Item } from "./styles";
 
-export const ListOfCategories = () => {
+function useCategoriesData() {
   const [categories, setCategories] = useState([]);
-  const [showFixed, setShowFixed] = useState(false);
+  const [loading, Setloading] = useState(false);
 
   useEffect(function () {
+    Setloading(true);
     window
       .fetch("https://petgram-apis.now.sh/categories")
       .then((res) => res.json())
       .then((response) => {
         setCategories(response);
+        Setloading(false);
       });
   }, []);
+
+  return { categories, loading };
+}
+
+export const ListOfCategories = () => {
+  const [showFixed, setShowFixed] = useState(false);
+  const { categories, loading } = useCategoriesData();
 
   useEffect(
     function () {
@@ -31,12 +40,18 @@ export const ListOfCategories = () => {
   );
 
   const renderList = (fixed) => (
-    <List className={fixed ? "fixed" : ""}>
-      {categories.map((category) => (
-        <Item key={category.id}>
-          <Category {...category} />
+    <List fixed={fixed}>
+      {loading ? (
+        <Item key={"loading"}>
+          <Category />
         </Item>
-      ))}
+      ) : (
+        categories.map((category) => (
+          <Item key={category.id}>
+            <Category {...category} path={`/pet/${category.id}`} />
+          </Item>
+        ))
+      )}
     </List>
   );
 
