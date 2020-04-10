@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState, memo } from "react";
 
 import { Category } from "../Category";
 import { List, Item } from "./styles";
@@ -20,8 +20,7 @@ function useCategoriesData() {
 
   return { categories, loading };
 }
-
-export const ListOfCategories = () => {
+const ListOfCategoriesComponent = () => {
   const [showFixed, setShowFixed] = useState(false);
   const { categories, loading } = useCategoriesData();
 
@@ -62,3 +61,5 @@ export const ListOfCategories = () => {
     </Fragment>
   );
 };
+
+export const ListOfCategories = memo(ListOfCategoriesComponent);
