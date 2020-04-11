@@ -1,33 +1,57 @@
-# React avanzado
+# Petgram 🐶
 
-### Webpack
+La App de Mascotas Implementa con React Hooks y muchas herramientas más.
 
-### Babel
+![Captura de la App](./.readme-static/petgram-home.png)
 
-### Linter
+[Ver la aplicación](https://petgram-apis-react.now.sh/)
 
-### Now
+## Herramientas usadas
 
-### Styled Components
+-   Webpack
 
-### Custom Hooks
+-   Babel
 
-### Intersection Observer
+-   Linter
 
-### GraphQL - React Apollo
+-   Now
 
-### Reach Router
+-   Styled Components
 
-### React Helmet
+-   Custom Hooks
 
-### React Memo
+-   Intersection Observer
 
-### Rect Lazy
+-   GraphQL - React Apollo
 
-### PropTypes
+-   Reach Router
 
-### Workbox
+-   React Helmet
 
-### Cypress
+-   React Memo
 
-### Basado en Repositorio con el código del [Curso Avanzado de React de Platzi](https://platzi.com/cursos/react-avanzado/)
+-   Rect Lazy
+
+-   PropTypes
+
+-   Workbox
+
+-   Cypress
+
+## ¿Cómo funciona?
+
+Requiere Node.JS 10
+
+-   `npm install` para instalar las dependencias.
+
+-   `npm run dev` para el entorno de desarrollo.
+
+-   `npm run serve:dev` para el entorno de producción.
+
+-   `npm run test` para ejecutar pruebas.
+
+###### [Backend usado fué tomado del curso de Platzi](https://platzi.com/cursos/react-avanzado/)
+
+## Licencia
+
+MIT
